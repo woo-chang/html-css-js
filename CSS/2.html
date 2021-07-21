@@ -38,6 +38,17 @@
         #article {
             padding-left: 25px;
         }
+        @media(max-width: 800px) { /* 최대 크기가 800 => 800 이하일 때 동작 */
+            #grid {
+            display: block;
+            }
+            #grid ol {
+                border-right: none;
+            }
+            h1 {
+                border-bottom: none;
+            }
+        }
     </style>
 </head>
 
