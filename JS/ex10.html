@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WEB1 - JavaScript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Object</h1>
+        <h2>Create</h2>
+        <script>
+            var coworkers = {
+                "programmer" : "egoing",
+                "designer" : "leezche"
+            }
+            document.write('programmer : ' + coworkers.programmer + '<br>');
+            document.write('designer : ' + coworkers.designer + '<br>'); // 객체 정보 가져오기
+            coworkers.bookkeeper = 'duru'; // 객체 정보 저장하기
+            document.write('bookkeeper : ' + coworkers.bookkeeper + '<br>');
+            coworkers['data scientist'] = 'taeho'; // 공백 있는 이름을 원할 때 대괄호 사용
+            document.write('data scientist : ' + coworkers['data scientist'] + '<br>');
+        </script>
+        <h2>Iterate</h2>
+        <script>
+            for(var key in coworkers) {
+                document.write(key + '<br>');
+            }
+            
+            for(var key in coworkers) {
+                document.write(coworkers[key] + '<br>');
+            }
+        </script>
+
+        <h2>Property & Method</h2>
+        <script>
+            // coworkers.showAll = function() {
+            //     for(var key in coworkers) {
+            //         document.write(key + ' : ' + coworkers[key] + '<br>');
+            //     }
+            // } 좋은 방법이 아님, coworkers의 이름이 바뀐다면 오류 발생 가능성
+            coworkers.showAll = function() {
+                for(var key in this) { // -> this로 변경
+                    document.write(key + ' : ' + coworkers[key] + '<br>');
+                }
+            }
+            coworkers.showAll();
+        </script>
+    </body>
+</html>

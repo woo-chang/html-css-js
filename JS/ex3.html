@@ -19,31 +19,39 @@
         }
     </style>
     <script>
+        function LinkSetColor(color) {
+            var alist = document.querySelectorAll('a');
+            var i = 0;
+            while (i < alist.length) {
+                alist[i].style.color = color;
+                i += 1;
+            }
+        }
+
+        function BodySetColor(color) {
+            document.querySelector('body').style.color = color;
+        }
+
+        function BodySetBackgroundColor(color) {
+            document.querySelector('body').style.backgroundColor = color;
+        }
+
         function nightDayHandler(self) {
             var target = document.querySelector('body'); // 변수를 사용하여 중복 제거
             if (self.value === 'night') {
-                target.style.backgroundColor = 'black';
-                target.style.color = 'white';
+                BodySetBackgroundColor('black');
+                BodySetColor('white');
                 self.value = 'day';
 
-                var alist = document.querySelectorAll('a');
-                var i = 0;
-                while (i < alist.length) {
-                    alist[i].style.color = 'powderblue';
-                    i += 1;
-                }
+                LinkSetColor('powderblue');
+                
             }
             else {
-                target.style.backgroundColor = 'white';
-                target.style.color = 'black'
+                BodySetBackgroundColor('white');
+                BodySetColor('black');
                 self.value = 'night';
 
-                var alist = document.querySelectorAll('a');
-                var i = 0;
-                while (i < alist.length) {
-                    alist[i].style.color = 'blue'
-                    i += 1;
-                }
+                LinkSetColor('blue');
             }
         }
     </script>
