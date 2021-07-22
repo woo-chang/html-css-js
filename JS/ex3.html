@@ -22,12 +22,23 @@
 <body>
     <h1><a href="index.html">WEB</a></h1>
 
-    <input type="button" value="night" onclick="
+    <!-- <input type="button" value="night" onclick=" -> 버튼 1개로 변경
         document.querySelector('body').style.backgroundColor = 'black';
         document.querySelector('body').style.color = 'white'">
     <input type="button" value="day" onclick="
         document.querySelector('body').style.backgroundColor = 'white';
-        document.querySelector('body').style.color = 'black'">
+        document.querySelector('body').style.color = 'black'"> -->
+    <input id="night_day" type="button" value="night" onclick="
+        if(document.querySelector('#night_day').value === 'night') {
+            document.querySelector('body').style.backgroundColor = 'black';
+            document.querySelector('body').style.color = 'white';
+            document.querySelector('#night_day').value = 'day';
+        }
+        else {
+            document.querySelector('body').style.backgroundColor = 'white';
+            document.querySelector('body').style.color = 'black'
+            document.querySelector('#night_day').value = 'night';
+        }">
 
     <ol>
         <li><a href="1.html">1. HTML</a></li>
@@ -44,6 +55,19 @@
         web pages and thus is an essential part of web applications. The vast majority of websites use it, [8] and all
         major web browsers have a dedicated <span class="js">JavaScript</span> engine to execute it.
     </p>
+
+    <input id="night_day" type="button" value="night" onclick="
+        var target = document.querySelector('body'); // 변수를 사용하여 중복 제거
+        if(this.value === 'night') {
+            target.style.backgroundColor = 'black';
+            target.style.color = 'white';
+            this.value = 'day';
+        }
+        else {
+            target.style.backgroundColor = 'white';
+            target.style.color = 'black'
+            this.value = 'night';
+        }">
 </body>
 
 </html>
