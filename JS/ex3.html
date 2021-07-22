@@ -13,10 +13,40 @@
         #first {
             color: green;
         }
+
         span {
             color: blue;
         }
     </style>
+    <script>
+        function nightDayHandler(self) {
+            var target = document.querySelector('body'); // 변수를 사용하여 중복 제거
+            if (self.value === 'night') {
+                target.style.backgroundColor = 'black';
+                target.style.color = 'white';
+                self.value = 'day';
+
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while (i < alist.length) {
+                    alist[i].style.color = 'powderblue';
+                    i += 1;
+                }
+            }
+            else {
+                target.style.backgroundColor = 'white';
+                target.style.color = 'black'
+                self.value = 'night';
+
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while (i < alist.length) {
+                    alist[i].style.color = 'blue'
+                    i += 1;
+                }
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -28,7 +58,7 @@
     <input type="button" value="day" onclick="
         document.querySelector('body').style.backgroundColor = 'white';
         document.querySelector('body').style.color = 'black'"> -->
-    <input id="night_day" type="button" value="night" onclick="
+    <!-- <input id="night_day" type="button" value="night" onclick=" -> 함수를 이용한 방식으로 변경
         if(document.querySelector('#night_day').value === 'night') {
             document.querySelector('body').style.backgroundColor = 'black';
             document.querySelector('body').style.color = 'white';
@@ -38,7 +68,9 @@
             document.querySelector('body').style.backgroundColor = 'white';
             document.querySelector('body').style.color = 'black'
             document.querySelector('#night_day').value = 'night';
-        }">
+        }"> -->
+    
+    <input type="button" value="night" onclick="nightDayHandler(this);">
 
     <ol>
         <li><a href="1.html">1. HTML</a></li>
