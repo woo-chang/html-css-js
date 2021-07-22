@@ -8,14 +8,17 @@ var Body = {
 };
 
 var Link = {
-  setColor: function (color) {
-    var alist = document.querySelectorAll("a");
-    var i = 0;
-    while (i < alist.length) {
-      alist[i].style.color = color;
-      i += 1;
+  // setColor: function (color) {
+  //   var alist = document.querySelectorAll("a");
+  //   var i = 0;
+  //   while (i < alist.length) {
+  //     alist[i].style.color = color;
+  //     i += 1;
+  //   }
+  // },
+    setColor: function(color) {
+      $('a').css('color', color); // jQuery가 반복문 대신 처리
     }
-  },
 };
 
 function nightDayHandler(self) {
